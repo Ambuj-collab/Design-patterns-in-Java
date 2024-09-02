@@ -1,0 +1,9 @@
+1) Design patterns are broadly classified into 3 categories: Creational, Structural and Behavioral. 
+
+2) First of all, we have creational design pattern. So all the design patterns that belong to this group, they deal with creating objects from classes. So they will give you solutions to common problems that you will face when you're thinking about creating objects from your existing classes. In other words, creational patterns deal with the process of creation of objects of classes.
+
+3) Next, we have the structural design patterns. So these design patterns deal with how we create or compose objects, so we can add another object to our existing object. And that way we can have a composition. So these design patterns deal with how to arrange our classes and objects so that we can derive a functionality out of them. In other words, Structural patterns deal with how classes and objects are arranged or composed.
+
+4) Lastly, we have behavioral design patterns, so these design patterns deal with how classes and objects interact or communicate with each other and how we can design the interaction between groups of objects so that we can derive a functionality or we can achieve the desired goal with these objects. In other words, Behavioral patterns describe how classes and objects interact and communicate with each other.
+
+5) On which basis or criteria are design patterns grouped in different categories?   -->  They are categorized based on the "type" of problem they solve. Some solve object creation related problems, some solve object communication and others solve object relationships.

@@ -1,0 +1,5 @@
+1) Open closed principle states that software entities, which basically means classes or modules or methods, software entities should be open for extension but closed for modification.
+
+2) So when we say open for extension, it basically means that we should be able to extend existing behavior. And when it says closed for modification, it means that whatever is already written should not be changed.
+
+3) So again, let's understand it from the perspective of Java so that you will understand it in a minute. What it means in Java is that we have a base class that is already written and tested, and if we want to extend or modify behavior of one of the methods that is written in this class, then we should be able to do that and we can do that using inheritance. We can extend from this base class and we can override a method. Okay, so this is what open for extension means and close for modification basically means that we should not go and modify code that is written in a base class because that code is ideally written and already tested. So this is what open closed principle is telling us to do.

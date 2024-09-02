@@ -1,0 +1,79 @@
+1) So let's look at the statement of this design principle. Interface Segregation principle tells us that clients shouldn't have to depend on interfaces that they don't use. In particular, we are talking about methods. Clients should not have to depend on methods that are defined in interfaces that they don't use. And we are talking here about a term called as interface pollution. You might have heard about this or not, but what this means is that we should not make our interfaces bigger. We should not cram methods that are unrelated in a one big interface and make all other classes in our software system or in our module implement that interface.
+	Clients should not be forced to depend upon interfaces that they don't use.
+
+2) And one very easy way to find violation of this principle. One very easy to use trick is that you will see methods that are empty, methods that throw unsupported operation exception, methods that don't do anything or return null. These are indications that you are violating interface segregation principle because that particular class is implementing an interface which has method that makes no sense for that particular class. And this is exactly what we should avoid and this is what interface Segregation principle is telling us. It is telling us to break those bigger interfaces so that the methods or behaviors or contracts that are defined in a particular interface are cohesive, that are related to each other and we don't run into a situation where a class is forced to provide an implementation for a method for which it doesn't make any sense.
+
+3) Signs of Interface Polution:
+	a) Classes have empty method implementations
+	b) Method implementations throw UnsupportedOperationException (or similar)
+	
+4) Let's look at the code. We have a method called find by name that is defined in the persistence service interface. If we go to our order class, you will see that we don't have anything like name here. Name doesn't make any sense for an order entity. Order can have an ID or can have a date. It can have a price value, but we don't have names for our orders. A user, on the other hand, makes perfect sense because it has a name. So having a find method that searches based on the name of a user makes sense here. But our order persistence service cannot provide any implementation for find by name. So what we do in this kind of situations, well, typically what people do is they will say throw new UnsupportedOperationException and they will pass on to that constructor[new UnsupportedOperationException()] saying that find by name is not supported. And this is here is an example of problem if we do not follow interface segregation principle because we have an interface that contains methods that don't make sense for some of the implementing classes. So this is how we run into violation of this principle and how will we solve this problem? Well, the idea here is that to break your interface, that is one solution. Second is that if a method in an interface is applicable to only a single class, then we can either remove that definition and put that only in the class for which it actually makes sense. And since we know that find by name makes sense for only user persistent service, anybody who wants to use that particular method can cast or use reference to this user persistence service so that our order persistence service is not forced to provide dummy implementation or empty implementation for methods that are defined in persistence service.
+
+	PersistenceService ps = new UserPersistenceService(); 
+	ps.findByName("Ambuj");   // can't make the call to this method because of the visibility since we are using reference variable of type PersistenceService which doesn't have the definition of this method 
+	
+	((UserPersistenceService)ps).findByName("Ambuj");  // type casting of ps is required to UserPersistenceService. Valid call
+	
+5) Sample Java code
+
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main implements Demo
+{
+	public static void main(String[] args) {
+	    Demo m = new Main();
+	    
+		System.out.println(((Main)m).getSubName() +" "+ m.getName());  // Valid calls
+	}
+	
+	@Override
+	public String getName(){
+	    return "Ambuj";
+	}
+	
+	public String getSubName(){
+	    return "Shukla";
+	}
+}
+
+interface Demo{
+    public String getName();
+}
+
+6) 5) Sample Java code
+
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main implements Demo
+{
+	public static void main(String[] args) {
+	    Main m = new Main();
+	    
+		System.out.println(m.getSubName() +" "+ m.getName());  // Valid calls
+	}
+	
+	@Override
+	public String getName(){
+	    return "Ambuj";
+	}
+	
+	public String getSubName(){
+	    return "Shukla";
+	}
+}
+
+interface Demo{
+    public String getName();
+}
