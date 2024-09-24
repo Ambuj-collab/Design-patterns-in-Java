@@ -1,0 +1,13 @@
+You now have all the tools that are needed to solve problems that are related to creating objects from classes.
+
+Now it's time to jump to the next group in our Design Patterns study, and that is the Structural Design patterns. So design patterns that belong to this group, they deal with how we can arrange our classes and objects in order to get some functionality or behavior out of them. So what do we mean by that? So we can use Composition and we can use Inheritance, and when we combine these two powerful features and create arrangements using these two features of object oriented programming, we can get some really interesting behavior out of our objects and classes. And using these arrangements, we can solve some very common problems that you will face in your real life development.
+
+So here is a list of Structural Design patterns that we are going to study here. And these design problems solve some very interesting problems. For example, let's say you want to provide a method level security to your object. So you want to make sure that whoever is calling your object's method must have performed an authentication. Let's say you want to use or simplify use of your subsystem. So you have these multiple classes designed that carry out a complicated functionality, but now it is becoming quite tiresome or tedious for the client code to use all these classes so you can simplify your entire subsystem using a single class. So these are some of the examples of problems that design patterns in this group try to solve.
+	1) Adapter
+	2) Bridge
+	3) Decorator
+	4) Composite
+	5) Facade
+	6) Flyweight
+	7) Proxy
+	
